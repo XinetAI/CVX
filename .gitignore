@@ -5,14 +5,10 @@
 *.csv
 *egg-info*
 **/build
-
 *.spec
-
 *.h5
 *.h5c
 *.npy
 **/draft
-
 *.zip
-
 **/model
