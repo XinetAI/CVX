@@ -86,6 +86,12 @@ with Deep Neural Networks》所做的检测胸切片图像中有丝分裂用于�
 
 [^14]: Liu W, Anguelov D, Erhan D, et al. SSD: Single Shot MultiBox Detector[J]. european conference on computer vision, 2016: 21-37
 
+### 1.11  A Survey
+
+- [Deep Learning for Generic Object Detection: A Survey](papers/1809.02165.pdf)[^15]
+
+[^15]: Liu L, Ouyang W, Wang X, et al. Deep Learning for Generic Object Detection: A Survey.[J]. arXiv: Computer Vision and Pattern Recognition, 2018.
+
 ## 2  预训练模型下载链接
 
 - [vgg16_reduced.zip](model/vgg16_reduced.zip)
