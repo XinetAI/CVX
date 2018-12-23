@@ -4,17 +4,14 @@
 
 ### 1.1  滑窗法
 
-论文：[Mitosis Detection in Breast Cancer Histology Images
-with Deep Neural Networks](papers/滑窗法.pdf)[^1]
-
-[^1]: Ciresan D C, Giusti A, Gambardella L M, et al. Mitosis Detection in Breast Cancer Histology Images with Deep Neural Networks[C]. medical image computing and computer assisted intervention, 2013: 411-418.
-
 滑窗法（Sliding Window）的思路及其简单，首先需要已经训练好的一个分类器，然后把图片按照一定间隔和不同的大小分成一个个窗口，在这些窗口上执行分类器。如果得到较高的分数分类，就认为是检测到了物体。把每个窗口都用分类器执行一遍之后，再对得到的分数做一些后处理，如非极大值抑制（Non-Maximum Suppression，NMS）等，最后得到物体类别和对应区域。
 
 ![Sliding Window](../images/SlidingWindow.png)
 
-滑窗法非常简单，但是效率低下，尤其是还要考虑物体的长宽比。如果执行比较耗时的分类器算法，用滑窗法就不太现实。常见的都是一些小型分类网络和滑窗法结合的应用，如论文《Mitosis Detection in Breast Cancer Histology Images
-with Deep Neural Networks》所做的检测胸切片图像中有丝分裂用于辅助癌症诊断。
+滑窗法非常简单，但是效率低下，尤其是还要考虑物体的长宽比。如果执行比较耗时的分类器算法，用滑窗法就不太现实。常见的都是一些小型分类网络和滑窗法结合的应用，如论文《[Mitosis Detection in Breast Cancer Histology Images
+with Deep Neural Networks](papers/滑窗法.pdf)[^1]》所做的检测胸切片图像中有丝分裂用于辅助癌症诊断。
+
+[^1]: Ciresan D C, Giusti A, Gambardella L M, et al. Mitosis Detection in Breast Cancer Histology Images with Deep Neural Networks[C]. medical image computing and computer assisted intervention, 2013: 411-418.
 
 ### 1.2  非极大值抑制
 
@@ -25,9 +22,29 @@ with Deep Neural Networks》所做的检测胸切片图像中有丝分裂用于�
 
 ### 1.3  选择性搜索
 
+选择性搜索(Selective Search)是主要运用图像分割技术来进行物体检测。
+
 - [Selective Search for Object Recognition](papers/UijlingsIJCV2013.pdf)[^3]
+- [论文笔记《Selective Search for object recognition》](https://blog.csdn.net/niaolianjiulin/article/details/52950797)
+- [[初窥目标检测]——《目标检测学习笔记（2）:浅析Selective Search论文——“Selective Search for object recognition”》](https://blog.csdn.net/u011478575/article/details/80041921)
 
 [^3]: Uijlings J R, De Sande K E, Gevers T, et al. Selective Search for Object Recognition[J]. International Journal of Computer Vision, 2013, 104(2): 154-171.
+
+- 输入：彩色图片（三通道）
+- 输出：物体位置的可能结果 $L$
+    1. 使用《Efficient Graph-Based Image Segmentation》方法，获取初始分割区域 $R=\{r_1,r_2, \ldots, r_n\}$
+    2. 初始化相似度集合 $S=∅$
+    3. 计算 $R$ 中两两相邻区域 $r_i, r_j$ 之间的相似度，将其添加到相似度集合 $S$ 中。
+    4. 从相似度集合 $S$ 中找出，相似度最大的两个区域 $r_i$ 和 $r_j$，将其合并成为一个区域 $r_t$。然后从相似度集合中除去原先与 $r_i$ 和 $r_j$ 相邻区域之间计算的相似度。计算新的 $r_t$ 与其相邻区域（原先与 $r_i$ 或 $r_j$ 相邻的区域）的相似度，将其结果添加的到相似度集合 $S$ 中。同时将新区域 $r_t$ 添加到区域集合 $R$ 中。迭代直至 $S$ 为空，即可合并区域的都已合并完。区域的合并方式类似于哈夫曼树的构造过程，因此称之有**层次**（hierarchical）。
+    5. 获取 $R$ 中每个区域的 Bounding Boxes，这个结果就是图像中物体可能位置的可能结果集合 $L$。
+
+#### 1.3.1  解读
+
+- [目标检测--Selective Search for Object Recognition(IJCV, 2013)](http://www.cnblogs.com/zhao441354231/p/5941190.html)
+- 项目地址：http://disi.unitn.it/~uijlings/MyHomepage/index.php#page=projects1
+- GitHub：https://github.com/CodeXZone/selectivesearch
+
+
 
 ### 1.4  R-CNN
 

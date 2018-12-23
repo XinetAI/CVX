@@ -10,3 +10,5 @@ R-CNN[^1] 方法结合了两个关键的因素：
 ![R-CNN 时间复杂度](images/R-CNN-timer.jpg)
 
 [^1]: Girshick R B, Donahue J, Darrell T, et al. Rich Feature Hierarchies for Accurate Object Detection and Semantic Segmentation[J]. computer vision and pattern recognition, 2014: 580-587.
+
+[R-CNN论文详解](https://blog.csdn.net/WoPawn/article/details/52133338?tdsourcetag=s_pcqq_aiomsg)
