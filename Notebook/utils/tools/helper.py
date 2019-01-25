@@ -1,7 +1,7 @@
 import os
 import pickle
 import shutil
-from sklearn.model_selection import train_test_split
+#from sklearn.model_selection import train_test_split
 
 
 def read_file(path):
@@ -32,11 +32,11 @@ def dump(path, bunch):
         pickle.dump(bunch, fp)
 
 
-def make_dir(root, dir_name):
+def mkdir_if_not_exist(root, dir_name):
     '''
     在 root 下生成目录
     '''
-    _dir = root + dir_name + "/"  # 拼出分完整目录名
+    _dir = os.path.join(root, dir_name) # 拼出分完整目录名
     if not os.path.exists(_dir):  # 是否存在目录，如果没有创建
         os.makedirs(_dir)
     return _dir

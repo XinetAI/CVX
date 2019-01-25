@@ -3,7 +3,6 @@ import os
 import json
 from math import ceil
 
-from sklearn.model_selection import train_test_split
 import numpy as np
 import pandas as pd
 import cv2
@@ -147,45 +146,33 @@ class Loader(dict):
 
 
 class CSVCat:
-    '''
-    Cat 文件是 CSV 格式的
-    '''
-
     def __init__(self, root, name):
-        '''
-        name 是 .csv 文件
-        '''
-        self.items = CSVCat.csv2dict(root, name)
+        self.csv2dict(root, name)  # name 是 .csv 文件
 
     @staticmethod
     def read_csv(root, name):
-        return pd.read_csv(os.path.join(root, name)).dropna(axis=1)
+        return pd.read_csv(os.path.join(root,
+                                        name))  # 从本地读取标签信息，格式 (id, label)
 
-    @staticmethod
-    def csv2dict(root, name, class_names=None):
-        rec = CSVCat.read_csv(root, name).to_records()
-        detect_dict = {}
-        for _, p, w in rec:
-            detect_dict[p] = detect_dict.get(p, []) + [w.split(' ')+[0]] # 0 是类别
-        return {p:np.array(w, dtype='float32') for p, w in detect_dict.items()}
-
-    @staticmethod
-    def split_names(names, test_size=.3):
-        '''
-        将数据集文件名随机划分为训练集和测试集
-        '''
-        tr_name, te_name = train_test_split(names, test_size=test_size)
-        return tr_name, te_name
+    def csv2dict(self, root, name):
+        rec = CSVCat.read_csv(root, name).to_records()  # 将 CSV 转换为 Records
+        self.cat_dict = {}  # 格式为 {'cat':[id1, id2, ...], ...}
+        for _, p, class_name in rec:
+            self.cat_dict[class_name] = self.cat_dict.get(class_name,
+                                                          []) + [p]  # 列表加法
+        self.class_names = tuple(self.cat_dict.keys())  # 获取类别名称列表
 
     def split(self, test_size=.3):
-        '''
-        将 items 随机划分为 train_items, val_items
-        '''
-        names = sorted(self.items.keys())
-        train_names, val_names = CSVCat.split_names(names, test_size=test_size)
-        train_items = {name: self.items[name] for name in train_names}
-        val_items = {name: self.items[name] for name in val_names}
-        return train_items, val_items
+        import random
+        train_dict = {}
+        val_dict = {}
+        for class_name, id_list in self.cat_dict.items():
+            random.shuffle(id_list)
+            n = len(id_list)
+            test_num = int(n * test_size)
+            val_dict[class_name], train_dict[
+                class_name] = id_list[:test_num], id_list[test_num:]
+        return train_dict, val_dict
 
 
 class Dataset(ImageZ):
