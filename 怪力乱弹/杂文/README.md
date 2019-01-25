@@ -1,0 +1,18 @@
+## 杂文
+
+- [Gitbook 中文](http://gitbook.zhangjikai.com/bookjson.html)
+- [Markdown + Gitbook](https://wizardforcel.gitbooks.io/markdown-simple-world/4.html)
+- [Gitbook 在页面中添加测验功能](https://yangjh.oschina.io/gitbook/faq/Exercise.html)
+- [Pandoc 文档](http://www.pandoc.org/MANUAL.html)
+- [高斯散度定理](http://www.cnblogs.com/mazhen/archive/2011/12/16/2290786.html)
+- [book](http://www.lightandmatter.com/books.html)
+- [用matlab做深度学习，有什么工具箱可以直接调用吗？](https://www.zhihu.com/question/60551937)
+- [XGBoost 文档](https://xgboost.ai/about)
+- [emoji 库](https://github.com/WebpageFX/emoji-cheat-sheet.com)
+- [每天一条有用的 Python 小提示](http://tips.pyhub.cc/zh/latest/)
+- [现有的人脸数据库介绍及下载链接](http://www.cnblogs.com/GarfieldEr007/p/5519337.html)
+- [Microsoft Visual Studio Code 中文手册](https://jeasonstudio.gitbooks.io/vscode-cn-doc/content/)
+- [图灵学院python授课课件](https://tulingxueyuan.gitbooks.io/python/content/)
+- [Linux 教程](http://www.runoob.com/linux/linux-tutorial.html)
+- [Python Cookbook 第 3 版 中文文档](https://python3-cookbook.readthedocs.io/zh_CN/latest/index.html)
+- [水煮信息化](http://blog.vsharing.com/hopeful/A637384.html)

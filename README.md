@@ -3,7 +3,6 @@
 ## 优质资源
 
 - [知乎专栏：From Beijing with Love](https://zhuanlan.zhihu.com/frombeijingwithlove)
-- [入门：深度学习与计算机视觉](./Note/dlcv_for_beginners/README.md)
 - [通过关键字爬取百度图片](https://www.jianshu.com/p/6f74b2ef07b8)
 - [mixup:超越经验风险最小化](https://www.jianshu.com/p/c588dd2928b5)
 - [2018年GitHub上最流行50大Python开源项目（上）](https://www.jianshu.com/p/2c2dc1e98c7e)
