@@ -1,6 +1,6 @@
 # 目标检测资源汇总
 
-[目标检测模型的评估指标mAP详解(附代码）](https://zhuanlan.zhihu.com/p/37910324)
+[目标检测模型的评估指标 mAP 详解(附代码）](https://zhuanlan.zhihu.com/p/37910324)
 
 ## 1  主要文献
 
@@ -149,3 +149,9 @@ R-CNN 方法结合了两个关键的因素：
 
 - [vgg16_reduced.zip](model/vgg16_reduced.zip)
 - [ssd_300_vgg16_reduced_voc0712_trainval.zip](model/ssd_300_vgg16_reduced_voc0712_trainval.zip)
+
+## 3 52CV.NET
+
+- [Grid R-CNN解读：商汤最新目标检测算法](https://www.52cv.net/?p=1800)
+- [Grid R-CNN 论文](papers/Grid R-CNN.pdf)
+- [计算机视觉研究入门全指南](https://www.52cv.net/?p=524)
