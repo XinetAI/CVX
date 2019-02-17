@@ -1,7 +1,6 @@
 import zipfile
 import os
 import json
-from math import ceil
 
 import numpy as np
 import pandas as pd
@@ -142,7 +141,7 @@ class Loader(dict):
             yield self.dataset[start:end]
 
     def __len__(self):
-        return ceil(self.nrows / self.batch_size)  # 向上取整
+        return round(self.nrows / self.batch_size)  # 向上取整
 
 
 class CSVCat:
