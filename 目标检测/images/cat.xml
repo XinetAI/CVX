@@ -1,0 +1,14 @@
+<annotation>
+	<folder>images</folder>
+	<filename>catdog.jpg</filename>
+	<path>D:\API\CVX\目标检测\images\catdog.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>640</width>
+		<height>479</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+</annotation>
