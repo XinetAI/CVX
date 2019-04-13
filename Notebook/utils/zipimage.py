@@ -141,7 +141,7 @@ class Loader(dict):
             yield self.dataset[start:end]
 
     def __len__(self):
-        return round(self.nrows / self.batch_size)  # 向上取整
+        return np.ceil(self.nrows / self.batch_size)  # 向上取整
 
 
 class CSVCat:
